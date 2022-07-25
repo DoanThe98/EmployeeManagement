@@ -16,5 +16,13 @@ public class Main {
         for(Employee employee : listOfemps) {
             System.out.println(employee);
         }
+//
+        System.out.println(empDao.getEmployeeById(2));
+
+//
+        System.out.println(empDao.getEmployeeByName("Minnnie Wilmut"));
+
+//
+        System.out.println(empDao.getNameById(2));
     }
 }

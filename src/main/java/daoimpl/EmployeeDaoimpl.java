@@ -10,11 +10,59 @@ import java.util.List;
 public class EmployeeDaoimpl implements EmployeeDAO {
     @Override
     public Employee getEmployeeById(int id) {
+        String dbURL = "jdbc:mysql://localhost:3305/employeemanagement";
+        try {
+            Connection conn = DriverManager.getConnection(dbURL, "root", "kit@2022A");
+
+            String sql = "select * from employee where id = " + id;
+            PreparedStatement ps = conn.prepareStatement(sql);
+            ResultSet rs = ps.executeQuery();
+            Employee emp = new Employee();
+            while (rs.next()) {
+
+                emp.setId(rs.getInt("id"));
+                emp.setFullName(rs.getString("fullName"));
+                emp.setEmail(rs.getString("email"));
+                emp.setHourWorkPerDay(rs.getInt("hour_work_per_day"));
+                emp.setLongWork(rs.getInt("long_work"));
+                emp.setFixedSalary(rs.getDouble("fixed_salary"));
+                emp.setOutsideSeviceNumber(rs.getInt("outside_service_number"));
+                emp.setTotalSalary(rs.getDouble("total_salary"));
+            }
+            conn.close();
+            return emp;
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
         return null;
     }
 
     @Override
     public Employee getEmployeeByName(String name) {
+        String dbURL ="jdbc:mysql://localhost:3305/employeemanagement";
+        try {
+
+            Connection conn = DriverManager.getConnection(dbURL, "root","kit@2022A");
+            String sql = "select * from employee where fullName = \"name\"";
+            PreparedStatement ps = conn.prepareStatement(sql);
+            ResultSet rs = ps.executeQuery(sql);
+            Employee emp = new Employee();
+            while (rs.next()) {
+                emp.setId(rs.getInt("id"));
+                emp.setFullName(rs.getString("fullName"));
+                emp.setEmail(rs.getString("email"));
+                emp.setHourWorkPerDay(rs.getInt("hour_work_per_day"));
+                emp.setLongWork(rs.getInt("long_work"));
+                emp.setFixedSalary(rs.getDouble("fixed_salary"));
+                emp.setOutsideSeviceNumber(rs.getInt("outside_service_number"));
+                emp.setTotalSalary(rs.getDouble("total_salary"));
+            }
+            rs.close();
+            return emp;
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
         return null;
     }
 
@@ -25,6 +73,23 @@ public class EmployeeDaoimpl implements EmployeeDAO {
 
     @Override
     public String getNameById(int id) {
+        String dbURL = "jdbc:mysql://localhost:3305/employeemanagement";
+        try {
+            Connection conn = DriverManager.getConnection(dbURL,"root","kit@2022A");
+
+            String sql = "select fullName from employee where id = " + id;
+            PreparedStatement ps = conn.prepareStatement(sql);
+            ResultSet rs = ps.executeQuery();
+            Employee emp = new Employee();
+            while (rs.next()) {
+                emp.setFullName(rs.getString("fullName"));
+            }
+            String emps = emp.getFullName();
+            conn.close();
+            return emps;
+            } catch (SQLException e) {
+            e.printStackTrace();
+        }
         return null;
     }
 
@@ -69,6 +134,7 @@ public class EmployeeDaoimpl implements EmployeeDAO {
 
     @Override
     public void saveEmployee(Employee emp) {
+
 
     }
 
