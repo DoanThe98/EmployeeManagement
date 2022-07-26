@@ -15,6 +15,17 @@ public class Employee {
         super();
     }
 
+    public Employee(String fullName, String email) {
+        this.fullName = fullName;
+        this.email = email;
+    }
+
+    public Employee(int id, String fullName, String email) {
+        this.id = id;
+        this.fullName = fullName;
+        this.email = email;
+    }
+
     public Employee(int id, String fullName, String email, int hourWorkPerDay, int longWork, double fixedSalary, int outsideSeviceNumber, double totalSalary) {
         this.id = id;
         this.fullName = fullName;

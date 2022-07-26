@@ -28,6 +28,9 @@ public class User {
         this.admin = admin;
         this.active = active;
     }
+    public User(){
+        super();
+    }
 
     public int getId() {
         return id;
