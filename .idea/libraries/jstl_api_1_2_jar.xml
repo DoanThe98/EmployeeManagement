@@ -1,0 +1,11 @@
+<component name="libraryTable">
+  <library name="jstl-api-1.2.jar">
+    <CLASSES />
+    <JAVADOC />
+    <NATIVE>
+      <root url="jar://D:/back_end_Thầy Thẩm/web_project/Tools/jstl-api-1.2.jar.zip!/" />
+      <root url="jar://D:/back_end_Thầy Thẩm/web_project/Tools/javax.servlet.jsp.jstl-api-1.2.1.jar.zip!/" />
+    </NATIVE>
+    <SOURCES />
+  </library>
+</component>
